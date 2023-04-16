@@ -1,4 +1,4 @@
-const Courses = () => {
+const Classes = ({classes}) => {
   return (
     <div className="container-fluid py-5">
       <div className="container py-5">
@@ -180,4 +180,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Classes;

@@ -1,4 +1,4 @@
-const CategoryList = () => {
+const SubjectList = () => {
   return (
     <div className="mb-5">
       <h3 className="text-uppercase mb-4" style={{ letterSpacing: "5px" }}>
@@ -40,4 +40,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default SubjectList;

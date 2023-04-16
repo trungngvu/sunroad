@@ -147,9 +147,9 @@ const Navbar = () => {
                     Giới thiệu
                   </Link>
                   <Link
-                    href="/courses"
+                    href="/subject"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/courses" && "active"
+                      path === "/subject" && "active"
                     }`}
                   >
                     Khóa học

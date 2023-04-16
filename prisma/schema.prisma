@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        String    @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean   @default(false)
+  author    User?     @relation(fields: [authorId], references: [id])
+  comments  Comment[]
+  createdAt DateTime  @default(now()) @map(name: "created_at")
+  updatedAt DateTime  @updatedAt @map(name: "updated_at")
+  authorId  String?
+  tags      String[]
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  posts     Post[]
+
+  @@map(name: "users")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  text      String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  author    String?
+  replies   Reply[]
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+model Reply {
+  id        String   @id @default(cuid())
+  text      String
+  author    String?
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  commentId String
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}
+
+model Subject {
+  id          String  @id @default(cuid())
+  title       String
+  description String?
+  classes     Class[]
+}
+
+model Class {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  subject     Subject? @relation(fields: [subjectId], references: [id])
+  subjectId   String?
+}

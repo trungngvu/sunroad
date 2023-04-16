@@ -1,6 +1,6 @@
 import NewsCard from "./NewsCard";
 
-const News = () => {
+const NewsContainer = ({ news }) => {
   return (
     <div className="container-fluid py-5">
       <div className="container pt-5 pb-3">
@@ -14,13 +14,13 @@ const News = () => {
           <h1>Các hoạt động của trung tâm</h1>
         </div>
         <div className="row pb-3">
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
+          {news?.map((news) => (
+            <NewsCard news={news} key={news.id} />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default News;
+export default NewsContainer;

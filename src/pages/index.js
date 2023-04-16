@@ -1,14 +1,28 @@
 import Head from "next/head";
 import Carousel from "@/components/Carousel";
 import About from "@/components/About";
-import Category from "@/components/Category";
-import Courses from "@/components/Courses";
+import Subject from "@/components/Subject";
+import Classes from "@/components/Classes";
 import Registration from "@/components/Registration";
 import Team from "@/components/Team";
 import Testimonial from "@/components/Testimonial";
-import News from "@/components/News";
+import News from "@/components/NewsContainer";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const subjects = await prisma.subject.findMany({
+    include: {
+      classes: true,
+    },
+  });
+  return {
+    props: { subjects },
+    revalidate: 10,
+  };
+};
+
+export default function Home({ subjects }) {
+  console.log(subjects);
   return (
     <>
       <Head>
@@ -19,8 +33,8 @@ export default function Home() {
       </Head>
       <Carousel />
       <About />
-      <Category />
-      <Courses />
+      <Subject subjects={subjects} />
+      <Classes />
       <Registration />
       <Team />
       <Testimonial />
