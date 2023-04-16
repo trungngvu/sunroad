@@ -1,7 +1,5 @@
 (function ($) {
   "use strict";
-  console.log(123);
-
   // Dropdown on mouse hover
   $(document).ready(function () {
     function toggleNavbarMethod() {

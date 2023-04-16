@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 const ContactPage = () => {
   return (
     <>
-      <PageHeader />
+      <PageHeader title="Liên hệ"/>
       <Contact />
     </>
   );

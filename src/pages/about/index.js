@@ -6,7 +6,7 @@ import PageHeader from "@/components/PageHeader";
 const AboutPage = () => {
   return (
     <>
-      <PageHeader />
+      <PageHeader title="Giới thiệu"/>
       <About />
       <Registration />
       <Testimonial />

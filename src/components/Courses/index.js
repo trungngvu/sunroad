@@ -14,7 +14,7 @@ const Courses = () => {
         <div className="row">
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-1.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-1.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">
@@ -41,7 +41,7 @@ const Courses = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-2.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-2.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">
@@ -68,7 +68,7 @@ const Courses = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-3.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-3.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">
@@ -95,7 +95,7 @@ const Courses = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-4.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-4.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">
@@ -122,7 +122,7 @@ const Courses = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-5.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-5.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">
@@ -149,7 +149,7 @@ const Courses = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="rounded overflow-hidden mb-2">
-              <img className="img-fluid" src="img/course-6.jpg" alt="" />
+              <img className="img-fluid" src="/img/course-6.jpg" alt="" />
               <div className="bg-secondary p-4">
                 <div className="d-flex justify-content-between mb-3">
                   <small className="m-0">

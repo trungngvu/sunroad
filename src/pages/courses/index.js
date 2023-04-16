@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 const CoursesPage = () => {
   return (
     <>
-      <PageHeader />
+      <PageHeader title="Khóa học"/>
       <Category />
       <Courses />
     </>

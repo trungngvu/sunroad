@@ -1,25 +1,25 @@
 const CommentForm = () => {
   return (
     <div className="bg-secondary rounded p-5">
-      <h3 className="text-uppercase mb-4" style="letter-spacing: 5px">
+      <h3 className="text-uppercase mb-4" style={{letterSpacing: "5px"}}>
         Leave a comment
       </h3>
       <form>
         <div className="form-group">
-          <label for="name">Name *</label>
+          <label htmlFor="name">Name *</label>
           <input type="text" className="form-control border-0" id="name" />
         </div>
         <div className="form-group">
-          <label for="email">Email *</label>
+          <label htmlFor="email">Email *</label>
           <input type="email" className="form-control border-0" id="email" />
         </div>
         <div className="form-group">
-          <label for="website">Website</label>
+          <label htmlFor="website">Website</label>
           <input type="url" className="form-control border-0" id="website" />
         </div>
 
         <div className="form-group">
-          <label for="message">Message *</label>
+          <label htmlFor="message">Message *</label>
           <textarea
             id="message"
             cols="30"

@@ -23,7 +23,7 @@ const Testimonial = () => {
                 </h4>
                 <img
                   className="img-fluid mx-auto mb-3"
-                  src="img/testimonial-1.jpg"
+                  src="/img/testimonial-1.jpg"
                   alt=""
                 />
                 <h5 className="m-0">Client Name</h5>
@@ -38,7 +38,7 @@ const Testimonial = () => {
                 </h4>
                 <img
                   className="img-fluid mx-auto mb-3"
-                  src="img/testimonial-2.jpg"
+                  src="/img/testimonial-2.jpg"
                   alt=""
                 />
                 <h5 className="m-0">Client Name</h5>
@@ -53,7 +53,7 @@ const Testimonial = () => {
                 </h4>
                 <img
                   className="img-fluid mx-auto mb-3"
-                  src="img/testimonial-3.jpg"
+                  src="/img/testimonial-3.jpg"
                   alt=""
                 />
                 <h5 className="m-0">Client Name</h5>

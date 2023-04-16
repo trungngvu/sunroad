@@ -13,7 +13,7 @@ const Category = () => (
       <div className="row">
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-1.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-1.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Toán</h4>
               <span>5 lớp</span>
@@ -22,7 +22,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-2.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-2.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Tiếng Anh</h4>
               <span>10 lớp</span>
@@ -31,7 +31,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-3.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-3.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Ngữ văn</h4>
               <span>20 lớp</span>
@@ -40,7 +40,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-4.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-4.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Hóa học</h4>
               <span>1 lớp</span>
@@ -49,7 +49,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-5.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-5.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Vật lý</h4>
               <span>20 lớp</span>
@@ -58,7 +58,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-6.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-6.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Tiếng Nhật</h4>
               <span>0 lớp</span>
@@ -67,7 +67,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-7.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-7.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Tiếng Hàn</h4>
               <span>0 lớp</span>
@@ -76,7 +76,7 @@ const Category = () => (
         </div>
         <div className="col-lg-3 col-md-6 mb-4">
           <div className="cat-item position-relative overflow-hidden rounded mb-2">
-            <img className="img-fluid" src="img/cat-8.jpg" alt="" />
+            <img className="img-fluid" src="/img/cat-8.jpg" alt="" />
             <a className="cat-overlay text-white text-decoration-none" href="">
               <h4 className="text-white font-weight-medium">Tiếng Trung</h4>
               <span>0 lớp</span>

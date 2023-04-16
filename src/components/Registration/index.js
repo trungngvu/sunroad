@@ -14,20 +14,24 @@ const Registration = () => {
               >
                 Đăng ký ngay
               </h5>
-              <h1 className="text-white">Đăng ký khóa học ngay hôm nay để nhận được nhiều ưu đãi đến từ Sunroad</h1>
+              <h1 className="text-white">
+                Đăng ký khóa học ngay hôm nay để nhận được nhiều ưu đãi đến từ
+                Sunroad
+              </h1>
             </div>
-            <p className="text-white">
-              Sunroad đảm bảo cam kết chất lượng
-            </p>
+            <p className="text-white">Sunroad đảm bảo cam kết chất lượng</p>
             <ul className="list-inline text-white m-0">
               <li className="py-2">
-                <i className="fa fa-check text-primary mr-3"></i>Đội ngũ giáo viên có trình độ chuyên môn cao
+                <i className="fa fa-check text-primary mr-3"></i>Đội ngũ giáo
+                viên có trình độ chuyên môn cao
               </li>
               <li className="py-2">
-                <i className="fa fa-check text-primary mr-3"></i>Cơ sở vật chất chất lượng
+                <i className="fa fa-check text-primary mr-3"></i>Cơ sở vật chất
+                chất lượng
               </li>
               <li className="py-2">
-                <i className="fa fa-check text-primary mr-3"></i>Cam kết đầu ra cho học sinh
+                <i className="fa fa-check text-primary mr-3"></i>Cam kết đầu ra
+                cho học sinh
               </li>
             </ul>
           </div>
@@ -59,7 +63,9 @@ const Registration = () => {
                       className="custom-select border-0 px-4"
                       style={{ height: "47px" }}
                     >
-                      <option selected>Chọn khóa học muốn đăng ký</option>
+                      <option defaultValue={"0"}>
+                        Chọn khóa học muốn đăng ký
+                      </option>
                       <option value="1">Course 1</option>
                       <option value="2">Course 1</option>
                       <option value="3">Course 1</option>

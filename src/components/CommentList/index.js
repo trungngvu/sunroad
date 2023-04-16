@@ -6,7 +6,7 @@ const CommentList = () => {
       </h3>
       <div className="media mb-4">
         <img
-          src="img/user.jpg"
+          src="/img/user.jpg"
           alt="Image"
           className="img-fluid rounded-circle mr-3 mt-1"
           style={{ width: "45px" }}
@@ -29,7 +29,7 @@ const CommentList = () => {
       </div>
       <div className="media mb-4">
         <img
-          src="img/user.jpg"
+          src="/img/user.jpg"
           alt="Image"
           className="img-fluid rounded-circle mr-3 mt-1"
           style={{ width: "45px" }}
@@ -50,7 +50,7 @@ const CommentList = () => {
           <button className="btn btn-sm btn-secondary">Reply</button>
           <div className="media mt-4">
             <img
-              src="img/user.jpg"
+              src="/img/user.jpg"
               alt="Image"
               className="img-fluid rounded-circle mr-3 mt-1"
               style={{ width: "45px" }}

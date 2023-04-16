@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 const Navbar = () => {
   const path = useRouter().pathname;
-  console.log(path);
 
   return (
     <>
@@ -50,7 +49,10 @@ const Navbar = () => {
       {/* <!-- Topbar End --> */}
 
       {/* <!-- Navbar Start --> */}
-      <div className="container-fluid">
+      <div
+        className="container-fluid sticky-top bg-white"
+        style={{ width: "100vw" }}
+      >
         <div className="row border-top px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
             <a
@@ -109,9 +111,15 @@ const Navbar = () => {
                   <span className="text-primary">SUN</span>ROAD
                 </h1>
               </a>
+              <a
+                className="btn btn-primary py-2 ml-auto d-lg-none "
+                href="contact"
+              >
+                Đăng ký học ngay!
+              </a>
               <button
                 type="button"
-                className="navbar-toggler"
+                className="navbar-toggler ml-4"
                 data-toggle="collapse"
                 data-target="#navbarCollapse"
               >
@@ -131,7 +139,7 @@ const Navbar = () => {
                     Trang chủ
                   </Link>
                   <Link
-                    href="about"
+                    href="/about"
                     className={`nav-item nav-link font-weight-bold ${
                       path === "/about" && "active"
                     }`}
@@ -139,7 +147,7 @@ const Navbar = () => {
                     Giới thiệu
                   </Link>
                   <Link
-                    href="courses"
+                    href="/courses"
                     className={`nav-item nav-link font-weight-bold ${
                       path === "/courses" && "active"
                     }`}
@@ -147,7 +155,7 @@ const Navbar = () => {
                     Khóa học
                   </Link>
                   <Link
-                    href="teachers"
+                    href="/teachers"
                     className={`nav-item nav-link font-weight-bold ${
                       path === "/teachers" && "active"
                     }`}
@@ -155,15 +163,15 @@ const Navbar = () => {
                     Giáo viên
                   </Link>
                   <Link
-                    href="blog"
+                    href="/news"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/blog" && "active"
+                      path === "/news" && "active"
                     }`}
                   >
                     Tin tức
                   </Link>
                   <Link
-                    href="contact"
+                    href="/contact"
                     className={`nav-item nav-link font-weight-bold ${
                       path === "/contact" && "active"
                     }`}

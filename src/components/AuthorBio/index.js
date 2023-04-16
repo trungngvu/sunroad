@@ -2,7 +2,7 @@ const AuthorBio = () => {
   return (
     <div className="d-flex flex-column text-center bg-dark rounded mb-5 py-5 px-4">
       <img
-        src="img/user.jpg"
+        src="/img/user.jpg"
         className="img-fluid rounded-circle mx-auto mb-3"
         style={{ width: "100px" }}
       />
