@@ -1,4 +1,4 @@
-const Registration = () => {
+const Registration = ({ classes, defaultOption }) => {
   return (
     <div
       className="container-fluid bg-registration py-5"
@@ -62,13 +62,14 @@ const Registration = () => {
                     <select
                       className="custom-select border-0 px-4"
                       style={{ height: "47px" }}
+                      defaultValue={defaultOption}
                     >
-                      <option defaultValue={"0"}>
-                        Chọn khóa học muốn đăng ký
-                      </option>
-                      <option value="1">Course 1</option>
-                      <option value="2">Course 1</option>
-                      <option value="3">Course 1</option>
+                      <option value={"0"}>Chọn khóa học muốn đăng ký</option>
+                      {classes?.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.title}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>

@@ -5,7 +5,7 @@ const TagCloud = ({ tags }) => {
         Tag Cloud
       </h3>
       <div className="d-flex flex-wrap m-n1">
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <div href="" className="btn btn-outline-primary m-1">
             {tag}
           </div>

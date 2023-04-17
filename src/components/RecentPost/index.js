@@ -2,14 +2,13 @@ import Link from "next/link";
 
 const RecentPost = ({ news }) => {
   const recent = news.slice(0, 2);
-  console.log(recent);
   return (
     <div className="mb-5">
       <h3 className="text-uppercase mb-4" style={{ letterSpacing: "5px" }}>
         Tin gần đây
       </h3>
 
-      {recent.map((item) => (
+      {recent?.map((item) => (
         <Link
           className="d-flex align-items-center text-decoration-none mb-3"
           href={`/news/${item.id}`}

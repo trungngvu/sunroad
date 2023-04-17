@@ -14,8 +14,8 @@ const Subject = ({ subjects }) => {
           <h1>Khám phá những môn học Sunroad đang giảng dạy</h1>
         </div>
         <div className="row">
-          {subjects.map((subject) => (
-            <div className="col-lg-3 col-md-6 mb-4">
+          {subjects?.map((subject) => (
+            <div className="col-lg-3 col-md-6 mb-4" key={subject.id}>
               <div className="cat-item position-relative overflow-hidden rounded mb-2">
                 <img className="img-fluid" src="/img/cat-1.jpg" alt="" />
                 <Link

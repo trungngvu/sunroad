@@ -36,7 +36,6 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 const News = ({ post, news }) => {
-  console.log(post);
   return (
     <>
       <PageHeader title={post.title} />

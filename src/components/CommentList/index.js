@@ -4,7 +4,7 @@ const CommentList = ({ comments }) => {
       <h3 className="text-uppercase mb-4" style={{ letterSpacing: "5px" }}>
         {comments.length} Bình luận
       </h3>
-      {comments.map((comment) => (
+      {comments?.map((comment) => (
         <div className="media mb-4" key={comment.id}>
           <img
             src="/img/user.jpg"
@@ -28,7 +28,7 @@ const CommentList = ({ comments }) => {
             </h6>
             <p>{comment.text}</p>
             <button className="btn btn-sm btn-secondary">Trả lời</button>
-            {comment.replies.map((reply) => (
+            {comment.replies?.map((reply) => (
               <div className="media mt-4" key={reply.id}>
                 <img
                   src="/img/user.jpg"

@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Data } from "@/context";
+
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { message: subjects } = useContext(Data);
   const path = useRouter().pathname;
 
   return (
@@ -50,7 +54,7 @@ const Navbar = () => {
 
       {/* <!-- Navbar Start --> */}
       <div
-        className="container-fluid sticky-top bg-white"
+        className="container-fluid sticky-top bg-white mw-100"
         style={{ width: "100vw" }}
       >
         <div className="row border-top px-xl-5">
@@ -72,35 +76,34 @@ const Navbar = () => {
               style={{ width: "calc(100% - 30px)", zIndex: 9 }}
             >
               <div className="navbar-nav w-100">
-                <div className="nav-item dropdown">
-                  <a href="#" className="nav-link" data-toggle="dropdown">
-                    Toán
-                    <i className="fa fa-angle-down float-right mt-1"></i>
-                  </a>
-                  <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                    <a href="" className="dropdown-item">
-                      Toán 7
+                {subjects.map((subject) =>
+                  subject.classes.length > 0 ? (
+                    <div className="nav-item dropdown" key={subject.id}>
+                      <a href="#" className="nav-link" data-toggle="dropdown">
+                        {subject.title}
+                        <i className="fa fa-angle-down float-right mt-1"></i>
+                      </a>
+                      <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                        {subject.classes.map((item) => (
+                          <Link
+                            href={{
+                              pathname: "/registration",
+                              query: { classId: item.id },
+                            }}
+                            className="dropdown-item"
+                            key={item.id}
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <a href="" class="nav-item nav-link" key={subject.id}>
+                      {subject.title}
                     </a>
-                    <a href="" className="dropdown-item">
-                      Toán 8
-                    </a>
-                    <a href="" className="dropdown-item">
-                      Toán 9
-                    </a>
-                  </div>
-                </div>
-                <a href="" className="nav-item nav-link">
-                  Ngữ văn
-                </a>
-                <a href="" className="nav-item nav-link">
-                  Tiếng Anh
-                </a>
-                <a href="" className="nav-item nav-link">
-                  Hóa học
-                </a>
-                <a href="" className="nav-item nav-link">
-                  Vật lý
-                </a>
+                  )
+                )}
               </div>
             </nav>
           </div>
@@ -179,12 +182,12 @@ const Navbar = () => {
                     Liên hệ
                   </Link>
                 </div>
-                <a
+                <Link
                   className="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block"
-                  href="contact"
+                  href="/registration"
                 >
                   Đăng ký học ngay!
-                </a>
+                </Link>
               </div>
             </nav>
           </div>

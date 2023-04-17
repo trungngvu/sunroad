@@ -56,18 +56,28 @@ model Reply {
 }
 
 model Subject {
-  id          String  @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   description String?
   classes     Class[]
+  Teacher     Teacher[]
 }
 
 model Class {
   id          String   @id @default(cuid())
   title       String
+  students    Int?     @default(0)
   description String?
   startDate   DateTime
   endDate     DateTime
   subject     Subject? @relation(fields: [subjectId], references: [id])
   subjectId   String?
+}
+
+model Teacher {
+  id          String   @id @default(cuid())
+  name        String
+  subject     Subject? @relation(fields: [subjectId], references: [id])
+  subjectId   String?
+  description String?
 }

@@ -7,22 +7,15 @@ import Registration from "@/components/Registration";
 import Team from "@/components/Team";
 import Testimonial from "@/components/Testimonial";
 import News from "@/components/NewsContainer";
-import prisma from "@/lib/prisma";
+import { Data } from "@/context";
 
-export const getStaticProps = async () => {
-  const subjects = await prisma.subject.findMany({
-    include: {
-      classes: true,
-    },
-  });
-  return {
-    props: { subjects },
-    revalidate: 10,
-  };
-};
+import { useContext } from "react";
 
-export default function Home({ subjects }) {
-  console.log(subjects);
+export default function Home() {
+  const { message: subjects } = useContext(Data);
+  let classes = [];
+  subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
+
   return (
     <>
       <Head>
@@ -34,8 +27,17 @@ export default function Home({ subjects }) {
       <Carousel />
       <About />
       <Subject subjects={subjects} />
-      <Classes />
-      <Registration />
+      <div className="text-center mb-5">
+        <h5
+          className="text-primary text-uppercase mb-3"
+          style={{ letterSpacing: "5px" }}
+        >
+          Các lớp học của chúng tôi
+        </h5>
+        <h1>Rất nhiều đánh giá tích cực</h1>
+      </div>
+      <Classes classes={classes.slice(0, 5)} />
+      <Registration classes={classes} />
       <Team />
       <Testimonial />
       <News />

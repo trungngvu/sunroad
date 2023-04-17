@@ -1,14 +1,29 @@
 import "@/styles/globals.css";
 import "@/styles/style.css";
 import Script from "next/script";
-import Layout from "../components/layout";
 
-export default function App({ Component, pageProps }) {
+import Layout from "../components/layout";
+import Context from "@/context";
+
+export default function App({ Component, pageProps, subjects }) {
+  const updatedSubjects = subjects.map((subject) => ({
+    ...subject,
+    classes: subject.classes.map((cls) => ({
+      ...cls,
+      startDate: new Date(cls.startDate),
+      endDate: new Date(cls.endDate),
+    })),
+    startDate: subject.startDate ? new Date(subject.startDate) : null,
+    endDate: subject.endDate ? new Date(subject.endDate) : null,
+  }));
+
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Context data={updatedSubjects}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Context>
       {/* <!-- JavaScript Libraries --> */}
       <Script
         strategy="beforeInteractive"
@@ -27,3 +42,9 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+App.getInitialProps = async () => {
+  const res = await fetch("http://localhost:3000/api/subjects");
+  const subjects = await res.json();
+  return { subjects };
+};
