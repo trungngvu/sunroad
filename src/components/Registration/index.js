@@ -6,15 +6,17 @@ const Registration = ({ classes, defaultOption }) => {
   const [contact, setContact] = useState("");
   const option = classes?.map(({ id, title }) => ({ value: id, label: title }));
   const [reClass, setReClass] = useState([
-    option.find((item) => item.value === parseInt(defaultOption)),
+    option?.find((item) => item.value === parseInt(defaultOption)),
   ]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
-    const classes = reClass?.map(({ value }) => ({
-      id: value,
-    }));
-    console.log(classes);
+    const classes =
+      reClass.length > 0
+        ? reClass?.map(({ value }) => ({
+            id: value,
+          }))
+        : [];
     event.preventDefault();
     setIsSubmitting(true);
     try {
