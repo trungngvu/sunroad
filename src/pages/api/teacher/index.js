@@ -13,5 +13,5 @@ export default async function handler(req, res) {
     return;
   }
   const data = await teachersApi();
-  res.status(200).json(teachers);
+  res.status(200).json(data);
 }

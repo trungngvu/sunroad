@@ -1,9 +1,9 @@
 import NewsContainer from "@/components/NewsContainer";
 import PageHeader from "@/components/PageHeader";
-import { posts } from "../api/post";
+import { postsApi } from "../api/post";
 
 export const getStaticProps = async () => {
-  const news = await posts();
+  const news = await postsApi();
   return {
     props: { news },
     revalidate: 10,
