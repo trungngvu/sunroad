@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       name,
       contact,
       classes: {
-        connect: [{ id: 1 }, { id: 2 }],
+        connect: classes,
       },
     },
   });
