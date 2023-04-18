@@ -1,9 +1,8 @@
 import Registration from "@/components/Registration";
 
-import { useEffect } from "react";
+import { useEffect, useRouter } from "react";
 
-
-const RegistrationPage = ({subjects}) => {
+const RegistrationPage = ({ subjects }) => {
   const router = useRouter();
   const { classId } = router.query;
 
