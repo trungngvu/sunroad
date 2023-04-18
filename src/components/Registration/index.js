@@ -1,4 +1,49 @@
+import Select from "react-select";
+import { useState, useId } from "react";
+
 const Registration = ({ classes, defaultOption }) => {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const option = classes?.map(({ id, title }) => ({ value: id, label: title }));
+  const [reClass, setReClass] = useState([
+    option.find((item) => item.value === parseInt(defaultOption)),
+  ]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    const classes = reClass?.map(({ value }) => ({
+      id: value,
+    }));
+    console.log(classes);
+    event.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          contact,
+          classes,
+        }),
+      });
+      if (response.ok) {
+        setName("");
+        setContact("");
+        setReClass();
+        alert("Gửi đăng ký thành công");
+      } else {
+        alert("Gửi đăng ký thất bại");
+      }
+    } catch (error) {
+      alert("Gửi đăng ký thất bại");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       className="container-fluid bg-registration py-5"
@@ -41,13 +86,15 @@ const Registration = ({ classes, defaultOption }) => {
                 <h1 className="m-0">Đăng ký ngay</h1>
               </div>
               <div className="card-body rounded-bottom bg-primary p-5">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <input
                       type="text"
                       className="form-control border-0 p-4"
                       placeholder="Tên của bạn"
                       required="required"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -56,28 +103,29 @@ const Registration = ({ classes, defaultOption }) => {
                       className="form-control border-0 p-4"
                       placeholder="Email/SĐT"
                       required="required"
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
-                    <select
-                      className="custom-select border-0 px-4"
-                      style={{ height: "47px" }}
-                      defaultValue={defaultOption}
-                    >
-                      <option value={"0"}>Chọn khóa học muốn đăng ký</option>
-                      {classes?.map((item) => (
-                        <option key={item.id} value={item.id}>
-                          {item.title}
-                        </option>
-                      ))}
-                    </select>
+                    <Select
+                      className="rounded"
+                      instanceId={useId()}
+                      options={option}
+                      isMulti
+                      value={reClass}
+                      onChange={(e) => {
+                        setReClass(e);
+                      }}
+                      placeholder="Chọn môn học"
+                    />
                   </div>
                   <div>
                     <button
                       className="btn btn-dark btn-block border-0 py-3"
                       type="submit"
                     >
-                      Đăng ký
+                      {isSubmitting ? "Đang đăng ký..." : "Đăng ký"}
                     </button>
                   </div>
                 </form>

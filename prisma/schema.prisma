@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Post {
-  id        String    @id @default(cuid())
+  id        Int       @id @default(autoincrement())
   title     String
   content   String?
   published Boolean   @default(false)
@@ -34,7 +34,7 @@ model User {
 model Comment {
   id        String   @id @default(cuid())
   text      String
-  postId    String
+  postId    Int
   author    String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -53,7 +53,7 @@ model Reply {
 }
 
 model Subject {
-  id          String    @id @default(cuid())
+  id          Int       @id @default(autoincrement())
   title       String
   description String?
   classes     Class[]
@@ -61,14 +61,16 @@ model Subject {
 }
 
 model Class {
-  id          String   @id @default(cuid())
-  title       String
-  students    Int?     @default(0)
-  description String?
-  startDate   DateTime
-  endDate     DateTime
-  subjectId   String?
-  subject     Subject? @relation(fields: [subjectId], references: [id])
+  id                 Int               @id @default(autoincrement())
+  title              String
+  students           Int?              @default(0)
+  description        String?
+  startDate          DateTime
+  endDate            DateTime
+  subjectId          Int
+  subject            Subject           @relation(fields: [subjectId], references: [id])
+  RegistrationForm   RegistrationForm? @relation(fields: [registrationFormId], references: [id])
+  registrationFormId Int?
 }
 
 model Teacher {
@@ -76,4 +78,19 @@ model Teacher {
   name        String
   description String?
   subjects    Subject[]
+}
+
+model RegistrationForm {
+  id      Int     @id @default(autoincrement())
+  name    String
+  contact String
+  classes Class[]
+}
+
+model ContactForm {
+  id      Int     @id @default(autoincrement())
+  name    String
+  contact String
+  subject String?
+  content String?
 }
