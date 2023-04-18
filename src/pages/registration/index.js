@@ -1,6 +1,7 @@
 import Registration from "@/components/Registration";
 
-import { useEffect, useRouter } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const RegistrationPage = ({ subjects }) => {
   const router = useRouter();
