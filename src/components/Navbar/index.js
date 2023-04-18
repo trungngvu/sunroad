@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Data } from "@/context";
-
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { message: subjects } = useContext(Data);
+  const [subjects, setSubjects] = useState();
+  useEffect(() => {
+    fetch("/api/subjects")
+      .then((res) => res.json())
+      .then((res) => setSubjects(res));
+  }, []);
   const path = useRouter().pathname;
 
   return (
@@ -76,7 +79,7 @@ const Navbar = () => {
               style={{ width: "calc(100% - 30px)", zIndex: 9 }}
             >
               <div className="navbar-nav w-100">
-                {subjects.map((subject) =>
+                {subjects?.map((subject) =>
                   subject.classes.length > 0 ? (
                     <div className="nav-item dropdown" key={subject.id}>
                       <a href="#" className="nav-link" data-toggle="dropdown">
@@ -84,7 +87,7 @@ const Navbar = () => {
                         <i className="fa fa-angle-down float-right mt-1"></i>
                       </a>
                       <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                        {subject.classes.map((item) => (
+                        {subject?.classes.map((item) => (
                           <Link
                             href={{
                               pathname: "/registration",

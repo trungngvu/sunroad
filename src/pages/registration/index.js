@@ -1,11 +1,9 @@
 import Registration from "@/components/Registration";
-import { Data } from "@/context";
 
-import { useContext, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const RegistrationPage = () => {
-  const { message: subjects } = useContext(Data);
+
+const RegistrationPage = ({subjects}) => {
   const router = useRouter();
   const { classId } = router.query;
 

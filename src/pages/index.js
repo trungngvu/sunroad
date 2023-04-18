@@ -7,12 +7,22 @@ import Registration from "@/components/Registration";
 import Team from "@/components/Team";
 import Testimonial from "@/components/Testimonial";
 import News from "@/components/NewsContainer";
-import { Data } from "@/context";
 
-import { useContext } from "react";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
-  const { message: subjects } = useContext(Data);
+export const getStaticProps = async () => {
+  const subjects = await prisma.subject.findMany({
+    include: {
+      classes: true,
+    },
+  });
+  return {
+    props: { subjects },
+    revalidate: 10,
+  };
+};
+
+export default function Home({ subjects }) {
   let classes = [];
   subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
 

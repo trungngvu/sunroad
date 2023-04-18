@@ -1,11 +1,21 @@
 import Subject from "@/components/Subject";
 import Classes from "@/components/Classes";
 import PageHeader from "@/components/PageHeader";
-import { Data } from "@/context";
+import prisma from "@/lib/prisma";
 
-import { use, useContext } from "react";
-const ClassesPage = () => {
-  const { message: subjects } = useContext(Data);
+export const getStaticProps = async () => {
+  const subjects = await prisma.subject.findMany({
+    include: {
+      classes: true,
+    },
+  });
+  return {
+    props: { subjects },
+    revalidate: 10,
+  };
+};
+
+const ClassesPage = ({ subjects }) => {
   return (
     <>
       <PageHeader title="Khóa học" />
