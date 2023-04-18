@@ -8,24 +8,23 @@ import Team from "@/components/Team";
 import Testimonial from "@/components/Testimonial";
 import News from "@/components/NewsContainer";
 
-import prisma from "@/lib/prisma";
+import { subjectsApi } from "./api/subject";
+import { teachersApi } from "./api/teacher";
+import { postsApi } from "./api/post";
 
 export const getStaticProps = async () => {
-  const subjects = await prisma.subject.findMany({
-    include: {
-      classes: true,
-    },
-  });
+  const news = await postsApi();
+  const teachers = await teachersApi();
+  const subjects = await subjectsApi();
+  let classes = [];
+  subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
   return {
-    props: { subjects },
+    props: { subjects, classes, teachers, news },
     revalidate: 10,
   };
 };
 
-export default function Home({ subjects }) {
-  let classes = [];  
-  subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
-
+export default function Home({ subjects, classes, teachers, news }) {
   return (
     <>
       <Head>
@@ -48,9 +47,9 @@ export default function Home({ subjects }) {
       </div>
       <Classes classes={classes.slice(0, 5)} />
       <Registration classes={classes} />
-      <Team />
+      <Team teachers={teachers.slice(0, 4)} />
       <Testimonial />
-      <News />
+      <News news={news.slice(0, 3)} />
     </>
   );
 }

@@ -14,7 +14,7 @@ const NewsCard = ({ news }) => {
         <div className="blog-overlay text-decoration-none">
           <h5 className="text-white mb-3">{news.title}</h5>
           <p className="text-primary m-0">
-            {news.createdAt.toLocaleDateString(undefined, options)}
+            {news.createdAt.toLocaleDateString("vi-VN", options)}
           </p>
         </div>
       </div>

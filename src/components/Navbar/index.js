@@ -1,14 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
-const Navbar = () => {
-  const [subjects, setSubjects] = useState();
-  useEffect(() => {
-    fetch("/api/subjects")
-      .then((res) => res.json())
-      .then((res) => setSubjects(res));
-  }, []);
+const Navbar = ({subjects}) => {
   const path = useRouter().pathname;
 
   return (
@@ -102,7 +95,7 @@ const Navbar = () => {
                       </div>
                     </div>
                   ) : (
-                    <a href="" class="nav-item nav-link" key={subject.id}>
+                    <a href="" className="nav-item nav-link" key={subject.id}>
                       {subject.title}
                     </a>
                   )
@@ -147,7 +140,7 @@ const Navbar = () => {
                   <Link
                     href="/about"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/about" && "active"
+                      path.includes("/about") && "active"
                     }`}
                   >
                     Giới thiệu
@@ -155,7 +148,7 @@ const Navbar = () => {
                   <Link
                     href="/subject"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/subject" && "active"
+                      path.includes("/subject") && "active"
                     }`}
                   >
                     Khóa học
@@ -163,7 +156,7 @@ const Navbar = () => {
                   <Link
                     href="/teachers"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/teachers" && "active"
+                      path.includes("/teachers") && "active"
                     }`}
                   >
                     Giáo viên
@@ -171,7 +164,7 @@ const Navbar = () => {
                   <Link
                     href="/news"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/news" && "active"
+                      path.includes("/news") && "active"
                     }`}
                   >
                     Tin tức
@@ -179,7 +172,7 @@ const Navbar = () => {
                   <Link
                     href="/contact"
                     className={`nav-item nav-link font-weight-bold ${
-                      path === "/contact" && "active"
+                      path.includes("/contact") && "active"
                     }`}
                   >
                     Liên hệ

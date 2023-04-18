@@ -6,30 +6,13 @@ import SearchForm from "@/components/SearchForm";
 import SubjectList from "@/components/SubjectList";
 import RecentPost from "@/components/RecentPost";
 import TagCloud from "@/components/TagCloud";
-import prisma from "@/lib/prisma";
+
+import { postApi } from "../api/post/[id]";
+import { postsApi } from "../api/post";
 
 export const getServerSideProps = async ({ params }) => {
-  const news = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
-  const post = await prisma.post.findUnique({
-    where: {
-      id: params?.id,
-    },
-    include: {
-      author: {
-        select: { name: true, email: true },
-      },
-      comments: {
-        include: { replies: true },
-      },
-    },
-  });
+  const news = await postsApi();
+  const post = await postApi(params?.id);
   return {
     props: { post, news },
   };
@@ -45,7 +28,7 @@ const News = ({ post, news }) => {
             <div className="col-lg-8">
               <div className="mb-5">
                 <h6 className="text-primary mb-3">
-                  {post.createdAt.toLocaleDateString(undefined, {
+                  {post.createdAt.toLocaleDateString("vi-VN", {
                     weekday: "long",
                     year: "numeric",
                     month: "long",

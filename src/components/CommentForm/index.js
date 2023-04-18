@@ -11,7 +11,7 @@ const CommentForm = ({ postId }) => {
     event.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/add-comment", {
+      const response = await fetch("/api/comment/add-comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

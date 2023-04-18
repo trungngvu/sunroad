@@ -18,7 +18,7 @@ const RecentPost = ({ news }) => {
           <div className="pl-3">
             <h6 className="m-1">{item.title}</h6>
             <small>
-              {item.createdAt.toLocaleDateString(undefined, {
+              {item.createdAt.toLocaleDateString("vi-VN", {
                 weekday: "long",
                 year: "numeric",
                 month: "long",

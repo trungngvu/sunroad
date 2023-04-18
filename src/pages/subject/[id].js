@@ -1,19 +1,13 @@
 import Classes from "@/components/Classes";
-import prisma from "@/lib/prisma";
+import { subjectApi } from "../api/subject/[id]";
 
 export const getServerSideProps = async ({ params }) => {
-  const subject = await prisma.subject.findUnique({
-    where: {
-      id: params?.id,
-    },
-    include: {
-      classes: true,
-    },
-  });
+  const subject = await subjectApi(params?.id)
   return {
     props: { subject },
   };
 };
+
 const SubjectPage = ({ subject }) => {
   return (
     <>

@@ -17,7 +17,7 @@ const CommentList = ({ comments }) => {
               {`${comment.author} `}
               <small>
                 <i>
-                  {comment.createdAt.toLocaleDateString(undefined, {
+                  {comment.createdAt.toLocaleDateString("vi-VN", {
                     weekday: "long",
                     year: "numeric",
                     month: "long",
@@ -41,7 +41,7 @@ const CommentList = ({ comments }) => {
                     {reply.author}{" "}
                     <small>
                       <i>
-                        {reply.createdAt.toLocaleDateString(undefined, {
+                        {reply.createdAt.toLocaleDateString("vi-VN", {
                           weekday: "long",
                           year: "numeric",
                           month: "long",

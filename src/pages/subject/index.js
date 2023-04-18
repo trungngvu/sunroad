@@ -1,14 +1,10 @@
 import Subject from "@/components/Subject";
 import Classes from "@/components/Classes";
 import PageHeader from "@/components/PageHeader";
-import prisma from "@/lib/prisma";
+import { subjectsApi } from "../api/subject";
 
 export const getStaticProps = async () => {
-  const subjects = await prisma.subject.findMany({
-    include: {
-      classes: true,
-    },
-  });
+  const subjects = await subjectsApi();
   return {
     props: { subjects },
     revalidate: 10,

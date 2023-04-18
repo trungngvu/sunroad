@@ -1,4 +1,5 @@
 const Team = ({ teachers }) => {
+  console.log(teachers);
   return (
     <div className="container-fluid py-5">
       <div className="container pt-5 pb-3">
@@ -14,7 +15,10 @@ const Team = ({ teachers }) => {
 
         <div className="row">
           {teachers?.map((teacher) => (
-            <div className="col-md-6 col-lg-3 text-center team mb-4">
+            <div
+              className="col-md-6 col-lg-3 text-center team mb-4"
+              key={teacher.id}
+            >
               <div className="team-item rounded overflow-hidden mb-2">
                 <div className="team-img position-relative">
                   <img className="img-fluid" src="/img/team-1.jpg" alt="" />
@@ -41,7 +45,11 @@ const Team = ({ teachers }) => {
                 </div>
                 <div className="bg-secondary p-4">
                   <h5>{teacher.name}</h5>
-                  <p className="m-0">{teacher.subject.title}</p>
+                  <p className="m-0">
+                    {teacher.subjects
+                      .map((subject) => subject.title)
+                      .join(", ")}
+                  </p>
                 </div>
               </div>
             </div>

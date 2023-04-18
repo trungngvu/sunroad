@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Classes = ({ classes }) => {
   return (
     <div className="container-fluid pb-5">
@@ -15,22 +17,28 @@ const Classes = ({ classes }) => {
                     </small>
                     <small className="m-0">
                       <i className="far fa-clock text-primary mr-2"></i>
-                      {item.startDate.toLocaleDateString(undefined, {
+                      {item.startDate.toLocaleDateString("vi-VN", {
                         year: "numeric",
                         month: "numeric",
                         day: "numeric",
                       })}
                       {" - "}
-                      {item.endDate.toLocaleDateString(undefined, {
+                      {item.endDate.toLocaleDateString("vi-VN", {
                         year: "numeric",
                         month: "numeric",
                         day: "numeric",
                       })}
                     </small>
                   </div>
-                  <a className="h5" href="">
+                  <Link
+                    className="h5"
+                    href={{
+                      pathname: "/registration",
+                      query: { classId: item.id },
+                    }}
+                  >
                     {item.title}
-                  </a>
+                  </Link>
                   <div className="border-top mt-4 pt-4">
                     <div className="d-flex justify-content-between">
                       <h6 className="m-0">

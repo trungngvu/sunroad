@@ -1,16 +1,9 @@
 import NewsContainer from "@/components/NewsContainer";
 import PageHeader from "@/components/PageHeader";
-import prisma from "@/lib/prisma";
+import { posts } from "../api/post";
 
 export const getStaticProps = async () => {
-  const news = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
+  const news = await posts();
   return {
     props: { news },
     revalidate: 10,

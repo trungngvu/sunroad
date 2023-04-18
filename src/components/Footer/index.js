@@ -1,4 +1,6 @@
-const Footer = () => (
+import Link from "next/link";
+
+const Footer = ({ subjects }) => (
   <>
     <div
       className="container-fluid bg-dark text-white py-5 px-sm-3 px-lg-5"
@@ -47,21 +49,16 @@ const Footer = () => (
                 Các khóa học
               </h5>
               <div className="d-flex flex-column justify-content-start">
-                <a className="text-white mb-2" href="#">
-                  <i className="fa fa-angle-right mr-2"></i>Toán
-                </a>
-                <a className="text-white mb-2" href="#">
-                  <i className="fa fa-angle-right mr-2"></i>Ngữ Văn
-                </a>
-                <a className="text-white mb-2" href="#">
-                  <i className="fa fa-angle-right mr-2"></i>Tiếng Anh
-                </a>
-                <a className="text-white mb-2" href="#">
-                  <i className="fa fa-angle-right mr-2"></i>Hóa học
-                </a>
-                <a className="text-white" href="#">
-                  <i className="fa fa-angle-right mr-2"></i>Vật lý
-                </a>
+                {subjects?.map((subject) => (
+                  <Link
+                    key={subject.id}
+                    className="text-white mb-2"
+                    href={`/subject/${subject.id}`}
+                  >
+                    <i className="fa fa-angle-right mr-2"></i>
+                    {subject.title}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -74,7 +71,8 @@ const Footer = () => (
             Đăng ký nhận tin từ chúng tôi
           </h5>
           <p>
-            Hãy nhập email của bạn vào ô bên dưới để không bỏ lỡ những cập nhật mới nhất từ Sunroad
+            Hãy nhập email của bạn vào ô bên dưới để không bỏ lỡ những cập nhật
+            mới nhất từ Sunroad
           </p>
           <div className="w-100">
             <div className="input-group">

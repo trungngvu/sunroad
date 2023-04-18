@@ -72,9 +72,8 @@ model Class {
 }
 
 model Teacher {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   name        String
-  subjectId   String?
   description String?
-  subject     Subject? @relation(fields: [subjectId], references: [id])
+  subjects    Subject[]
 }

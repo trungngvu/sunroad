@@ -1,9 +1,9 @@
 import Registration from "@/components/Registration";
 import { useRouter } from "next/router";
-import prisma from "@/lib/prisma";
+import { classesApi } from "../api/class";
 
 export const getStaticProps = async () => {
-  const classes = await prisma.class.findMany({});
+  const classes = await classesApi();
   return { props: { classes }, revalidate: 10 };
 };
 
