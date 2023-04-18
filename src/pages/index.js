@@ -23,7 +23,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ subjects }) {
-  let classes = [];
+  let classes = [];  
   subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
 
   return (

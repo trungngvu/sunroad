@@ -1,16 +1,15 @@
 import Registration from "@/components/Registration";
-
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import prisma from "@/lib/prisma";
 
-const RegistrationPage = ({ subjects }) => {
+export const getStaticProps = async () => {
+  const classes = await prisma.class.findMany({});
+  return { props: { classes }, revalidate: 10 };
+};
+
+const RegistrationPage = ({ classes }) => {
   const router = useRouter();
   const { classId } = router.query;
-
-  useEffect(() => {}, [classId]);
-
-  let classes = [];
-  subjects?.map((subject) => (classes = [...classes, ...subject.classes]));
 
   return (
     <>

@@ -14,7 +14,7 @@ export const getServerSideProps = async ({ params }) => {
     props: { subject },
   };
 };
-const Class = ({ subject }) => {
+const SubjectPage = ({ subject }) => {
   return (
     <>
       <div className="text-center mb-5 pt-4">
@@ -30,4 +30,4 @@ const Class = ({ subject }) => {
   );
 };
 
-export default Class;
+export default SubjectPage;
