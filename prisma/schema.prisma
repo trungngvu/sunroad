@@ -57,7 +57,7 @@ model Subject {
   title       String
   description String?
   classes     Class[]
-  Teacher     Teacher[]
+  teachers    Teacher[]
 }
 
 model Class {
