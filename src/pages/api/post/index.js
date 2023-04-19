@@ -10,12 +10,20 @@ export const postsApi = async () =>
     },
   });
 
+export const addPostApi = async (title, content, published, tags) =>
+  await prisma.post.create({ data: { title, content, published, tags } });
+
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    res.status(405).json({ message: "Method not allowed" });
+  if (req.method === "GET") {
+    const data = await postsApi();
+    res.status(200).json(data);
     return;
   }
-  const data = await postsApi();
-
-  res.status(200).json(data);
+  if (req.method === "POST") {
+    const { title, content, published, tags } = req.body;
+    const data = await addPostsApi(title, content, published, tags);
+    res.status(200).json(data);
+    return;
+  }
+  res.status(405).json({ message: "Method not allowed" });
 }

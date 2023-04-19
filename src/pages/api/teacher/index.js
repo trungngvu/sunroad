@@ -7,11 +7,20 @@ export const teachersApi = async () =>
     },
   });
 
+export const addTeacherApi = async (name, description, subjects) =>
+  await prisma.teacher.create({
+    data: {
+      name,
+      description,
+      subjects: { connect: subjects },
+    },
+  });
+
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    res.status(405).json({ message: "Method not allowed" });
+  if (req.method === "GET") {
+    const data = await teachersApi();
+    res.status(200).json(data);
     return;
   }
-  const data = await teachersApi();
-  res.status(200).json(data);
+  res.status(405).json({ message: "Method not allowed" });
 }

@@ -1,14 +1,7 @@
 import prisma from "../../../lib/prisma";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.status(405).json({ message: "Method not allowed" });
-    return;
-  }
-
-  const { name, contact, classes } = req.body;
-
-  const register = await prisma.registrationForm.create({
+export const register = async (name, contact, classes) =>
+  await prisma.registrationForm.create({
     data: {
       name,
       contact,
@@ -18,5 +11,13 @@ export default async function handler(req, res) {
     },
   });
 
-  res.status(200).json(register);
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    const { name, contact, classes } = req.body;
+    const data = await register(name, contact, classes);
+    res.status(200).json(data);
+    return;
+  }
+
+  res.status(405).json({ message: "Method not allowed" });
 }

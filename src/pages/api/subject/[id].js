@@ -11,11 +11,11 @@ export const subjectApi = async (id) =>
   });
 
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    res.status(405).json({ message: "Method not allowed" });
+  if (req.method === "GET") {
+    const { id } = req.query;
+    const data = subjectApi(id);
+    res.status(200).json(data);
     return;
   }
-  const { id } = req.query;
-  const data = subjectApi(id);
-  res.status(200).json(data);
+  res.status(405).json({ message: "Method not allowed" });
 }
