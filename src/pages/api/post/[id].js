@@ -19,6 +19,6 @@ export default async function handler(req, res) {
     return;
   }
   const { id } = req.query;
-  const data = await postApi(id);
+  const data = await postApi(parseInt(id));
   res.status(200).json(data);
 }
