@@ -3,7 +3,7 @@ import prisma from "../../../lib/prisma";
 export const subjectApi = async (id) =>
   await prisma.subject.findUnique({
     where: {
-      id,
+      id: parseInt(id),
     },
     include: {
       classes: true,

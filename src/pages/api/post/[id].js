@@ -3,7 +3,7 @@ import prisma from "../../../lib/prisma";
 export const postApi = async (id) =>
   await prisma.post.findUnique({
     where: {
-      id,
+      id: parseInt(id),
     },
     include: {
       author: true,
@@ -19,6 +19,6 @@ export default async function handler(req, res) {
     return;
   }
   const { id } = req.query;
-  const data = await postApi(parseInt(id));
+  const data = await postApi(id);
   res.status(200).json(data);
 }
