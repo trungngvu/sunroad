@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   }
   if (req.method === "POST") {
     const { title, content, published, tags } = req.body;
-    const data = await addPostsApi(title, content, published, tags);
+    const data = await addPostApi(title, content, published, tags);
     res.status(200).json(data);
     return;
   }
