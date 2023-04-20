@@ -39,6 +39,7 @@ export default async function handler(req, res) {
       subjectId
     );
     res.status(200).json(data);
+    return;
   }
   res.status(405).json({ message: "Method not allowed" });
 }
