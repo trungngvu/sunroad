@@ -16,6 +16,9 @@ export const updateSubjectApi = async (id, updates) =>
     data: updates,
   });
 
+export const deleteSubjectApi = async (id) =>
+  await prisma.subject.delete({ where: { id: parseInt(id) } });
+
 export default async function handler(req, res) {
   const { id } = req.query;
   if (req.method === "GET") {
@@ -25,6 +28,11 @@ export default async function handler(req, res) {
   }
   if (req.method === "PUT") {
     const data = await updateSubjectApi(id, req.body);
+    res.status(200).json(data);
+    return;
+  }
+  if (req.method === "DELETE") {
+    const data = deleteSubjectApi(id);
     res.status(200).json(data);
     return;
   }
