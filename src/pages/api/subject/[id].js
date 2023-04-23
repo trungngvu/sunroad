@@ -7,13 +7,25 @@ export const subjectApi = async (id) =>
     },
     include: {
       classes: true,
+      teachers: true,
     },
   });
 
-export const updateSubjectApi = async (id, updates) =>
+export const updateSubjectApi = async (
+  id,
+  title,
+  description,
+  classes,
+  teachers
+) =>
   await prisma.subject.update({
     where: { id: parseInt(id) },
-    data: updates,
+    data: {
+      title,
+      description,
+      classes: { set: classes },
+      teachers: { set: teachers },
+    },
   });
 
 export const deleteSubjectApi = async (id) =>
@@ -21,18 +33,29 @@ export const deleteSubjectApi = async (id) =>
 
 export default async function handler(req, res) {
   const { id } = req.query;
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   if (req.method === "GET") {
-    const data = subjectApi(id);
+    const data = await subjectApi(id);
     res.status(200).json(data);
     return;
   }
   if (req.method === "PUT") {
-    const data = await updateSubjectApi(id, req.body);
+    const { title, description, classes, teachers } = req.body;
+    const data = await updateSubjectApi(
+      id,
+      title,
+      description,
+      classes,
+      teachers
+    );
     res.status(200).json(data);
     return;
   }
   if (req.method === "DELETE") {
-    const data = deleteSubjectApi(id);
+    const data = await deleteSubjectApi(id);
     res.status(200).json(data);
     return;
   }

@@ -22,6 +22,10 @@ export const createClassApi = async (
   });
 
 export default async function handler(req, res) {
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   if (req.method === "GET") {
     const data = await classesApi();
     res.status(200).json(data);

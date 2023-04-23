@@ -18,6 +18,10 @@ export const addSubjectApi = async (title, description, classes, teachers) =>
   });
 
 export default async function handler(req, res) {
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   if (req.method === "GET") {
     const data = await subjectsApi();
     res.status(200).json(data);

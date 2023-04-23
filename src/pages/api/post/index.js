@@ -10,18 +10,37 @@ export const postsApi = async () =>
     },
   });
 
-export const addPostApi = async (title, content, published, tags) =>
-  await prisma.post.create({ data: { title, content, published, tags } });
+export const postsApiServer = async () =>
+  await prisma.post.findMany({
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+  });
+
+export const addPostApi = async (title, content, published, tags, authorId) =>
+  await prisma.post.create({
+    data: { title, content, published, tags, authorId },
+  });
 
 export default async function handler(req, res) {
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   if (req.method === "GET") {
-    const data = await postsApi();
+    const isFromFrontend =
+      req.headers.referer &&
+      req.headers.referer.includes(process.env.NEXT_PUBLIC_SITE_URL);
+
+    const data = isFromFrontend ? await postsApi() : await postsApiServer();
     res.status(200).json(data);
     return;
   }
   if (req.method === "POST") {
-    const { title, content, published, tags } = req.body;
-    const data = await addPostApi(title, content, published, tags);
+    const { title, content, published, tags, authorId } = req.body;
+    const data = await addPostApi(title, content, published, tags, authorId);
     res.status(200).json(data);
     return;
   }
