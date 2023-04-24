@@ -10,12 +10,22 @@ export const classApi = async (id) =>
     },
   });
 
-export const updateClassApi = async (id, updates) =>
+export const updateClassApi = async (
+  id,
+  { title, students, description, startDate, endDate, subjectId }
+) => {
   await prisma.class.update({
     where: { id: parseInt(id) },
-    data: updates,
+    data: {
+      title,
+      students: parseInt(students),
+      description,
+      startDate,
+      endDate,
+      subjectId: parseInt(subjectId),
+    },
   });
-
+};
 export const deleteClassApi = async (id) =>
   await prisma.class.delete({ where: { id: parseInt(id) } });
 

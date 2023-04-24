@@ -13,11 +13,11 @@ export const createClassApi = async (
   prisma.class.create({
     data: {
       title,
-      students,
+      students: parseInt(students),
       description,
       startDate,
       endDate,
-      subjectId,
+      subjectId: parseInt(subjectId),
     },
   });
 

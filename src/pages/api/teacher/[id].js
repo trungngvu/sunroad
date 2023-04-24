@@ -3,7 +3,7 @@ import prisma from "../../../lib/prisma";
 export const teacherApi = async (id) =>
   await prisma.teacher.findUnique({
     where: {
-      id: parseInt(id),
+      id,
     },
     include: {
       subjects: true,
@@ -12,7 +12,7 @@ export const teacherApi = async (id) =>
 
 export const updateTeacherApi = async (id, name, description, subjects) =>
   await prisma.teacher.update({
-    where: { id: parseInt(id) },
+    where: { id },
     data: {
       name,
       description,
@@ -21,7 +21,7 @@ export const updateTeacherApi = async (id, name, description, subjects) =>
   });
 
 export const deleteTeacherApi = async (id) =>
-  await prisma.teacher.delete({ where: { id: parseInt(id) } });
+  await prisma.teacher.delete({ where: { id } });
 
 export default async function handler(req, res) {
   const { id } = req.query;
