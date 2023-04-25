@@ -1,17 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
-const Navbar = ({subjects}) => {
+const Navbar = ({ subjects }) => {
   const path = useRouter().pathname;
 
   return (
     <>
       <div className="container-fluid d-none d-lg-block">
         <div className="row align-items-center py-4 px-xl-5">
-          <div className="col-lg-3">
+          <div className="col-lg-3 ">
             <a href="" className="text-decoration-none">
               <h1 className="m-0">
-                <span className="text-primary">SUN</span>ROAD
+                <Image
+                  src="/img/logo.png"
+                  width={80}
+                  height={80}
+                  className="position-absolute"
+                  style={{ transform: "translateY(-50%)" }}
+                />
               </h1>
             </a>
           </div>
@@ -106,9 +113,13 @@ const Navbar = ({subjects}) => {
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
               <a href="" className="text-decoration-none d-block d-lg-none">
-                <h1 className="m-0">
-                  <span className="text-primary">SUN</span>ROAD
-                </h1>
+                <Image
+                  src="/img/logo.png"
+                  width={60}
+                  height={60}
+                  className="position-absolute"
+                  style={{ transform: "translateY(-50%)" }}
+                />
               </a>
               <a
                 className="btn btn-primary py-2 ml-auto d-lg-none "

@@ -36,16 +36,21 @@ const News = ({ post, news }) => {
                   })}
                 </h6>
                 <h1 className="mb-5">{post.title}</h1>
-                <div>{post.content}</div>
+                <div
+                  className="ql-editor"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
               </div>
               <CommentList comments={post.comments} />
               <CommentForm postId={post.id} />
             </div>
             <div className="col-lg-4 mt-5 mt-lg-0">
               <AuthorBio author={post.author} />
-              <SearchForm />
-              <SubjectList />
-              <RecentPost news={news} />
+              {/* <SearchForm /> */}
+              {/* <SubjectList /> */}
+              <RecentPost
+                news={news.slice(0, 3).filter(({ id }) => id !== post.id)}
+              />
               <TagCloud tags={post.tags} />
             </div>
           </div>
