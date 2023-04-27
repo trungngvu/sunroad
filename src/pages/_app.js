@@ -1,15 +1,18 @@
 import "@/styles/globals.css";
 import "@/styles/style.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 import Layout from "../components/layout";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <Analytics />
+
       {/* <!-- JavaScript Libraries --> */}
       <Script
         strategy="beforeInteractive"
