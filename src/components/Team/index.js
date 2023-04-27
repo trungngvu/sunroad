@@ -1,5 +1,4 @@
 const Team = ({ teachers }) => {
-  console.log(teachers);
   return (
     <div className="container-fluid py-5">
       <div className="container pt-5 pb-3">

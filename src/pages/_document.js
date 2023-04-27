@@ -10,6 +10,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+          rel="stylesheet"
+        ></link>
 
         {/* <!-- Font Awesome --> */}
         <link
