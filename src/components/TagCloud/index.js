@@ -5,7 +5,7 @@ const TagCloud = ({ tags }) => {
         Từ khóa
       </h3>
       <div className="d-flex flex-wrap m-n1">
-        {tags?.map((tag) => (
+        {tags?.split(",").map((tag) => (
           <div key={tag} href="" className="btn btn-outline-primary m-1">
             {tag}
           </div>

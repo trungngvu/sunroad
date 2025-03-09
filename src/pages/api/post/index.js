@@ -21,7 +21,7 @@ export const postsApiServer = async () =>
 
 export const addPostApi = async (title, content, published, tags, authorId) =>
   await prisma.post.create({
-    data: { title, content, published, tags, authorId },
+    data: { title, content, published, tags: tags.join(','), authorId },
   });
 
 export default async function handler(req, res) {
