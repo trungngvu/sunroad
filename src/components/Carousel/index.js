@@ -43,16 +43,16 @@ const Carousel = () => {
             <div className="carousel-caption d-flex align-items-center justify-content-center">
               <div className="p-5" style={{ width: "100%", maxWidth: "900px" }}>
                 <h5 className="text-white text-uppercase mb-md-3">
-                  Best Online Courses
+                  Trung tâm bồi dưỡng văn hoá Sunroad
                 </h5>
                 <h1 className="display-3 text-white mb-md-4">
-                  Best Education From Your Home
+                  Kiến tạo tri thức - Chắp cánh tương lai!
                 </h1>
                 <a
-                  href=""
+                  href="/about"
                   className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2"
                 >
-                  Learn More
+                  Tìm hiểu thêm
                 </a>
               </div>
             </div>
@@ -66,16 +66,16 @@ const Carousel = () => {
             <div className="carousel-caption d-flex align-items-center justify-content-center">
               <div className="p-5" style={{ width: "100%", maxWidth: "900px" }}>
                 <h5 className="text-white text-uppercase mb-md-3">
-                  Best Online Courses
+                  Trung tâm bồi dưỡng văn hoá Sunroad
                 </h5>
                 <h1 className="display-3 text-white mb-md-4">
-                  Best Online Learning Platform
+                  Giáo dục chất lượng, thành công bền vững!
                 </h1>
                 <a
-                  href=""
+                  href="/about"
                   className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2"
                 >
-                  Learn More
+                  Tìm hiểu thêm
                 </a>
               </div>
             </div>
@@ -89,16 +89,16 @@ const Carousel = () => {
             <div className="carousel-caption d-flex align-items-center justify-content-center">
               <div className="p-5" style={{ width: "100%", maxWidth: "900px" }}>
                 <h5 className="text-white text-uppercase mb-md-3">
-                  Best Online Courses
+                  Trung tâm bồi dưỡng văn hoá Sunroad
                 </h5>
                 <h1 className="display-3 text-white mb-md-4">
-                  New Way To Learn From Home
+                  Học hôm nay, dẫn lối ngày mai!
                 </h1>
                 <a
-                  href=""
+                  href="/about"
                   className="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2"
                 >
-                  Learn More
+                  Tìm hiểu thêm
                 </a>
               </div>
             </div>

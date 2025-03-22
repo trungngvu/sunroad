@@ -51,7 +51,7 @@ const News = ({ post, news }) => {
               <RecentPost
                 news={news.slice(0, 3).filter(({ id }) => id !== post.id)}
               />
-              <TagCloud tags={post.tags} />
+              {/* <TagCloud tags={post.tags} /> */}
             </div>
           </div>
         </div>

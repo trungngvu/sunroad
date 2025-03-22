@@ -78,6 +78,7 @@ model Teacher {
   id          String    @id @default(cuid())
   name        String
   description String?
+  image       String? @db.Text
   subjects    Subject[]
 }
 

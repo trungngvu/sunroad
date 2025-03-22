@@ -10,13 +10,14 @@ export const teacherApi = async (id) =>
     },
   });
 
-export const updateTeacherApi = async (id, name, description, subjects) =>
+export const updateTeacherApi = async (id, name, description, subjects, image) =>
   await prisma.teacher.update({
     where: { id },
     data: {
       name,
       description,
       subjects: { set: subjects },
+      image,
     },
   });
 
@@ -35,8 +36,8 @@ export default async function handler(req, res) {
     return;
   }
   if (req.method === "PUT") {
-    const { name, description, subjects } = req.body;
-    const data = await updateTeacherApi(id, name, description, subjects);
+    const { name, description, subjects, image } = req.body;
+    const data = await updateTeacherApi(id, name, description, subjects, image);
     res.status(200).json(data);
     return;
   }
