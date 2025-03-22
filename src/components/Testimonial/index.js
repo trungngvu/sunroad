@@ -51,7 +51,7 @@ const Testimonial = () => {
                     hảo cho các bạn học sinh muốn nâng cao kiến thức!
                   </h4>
                   <img
-                    className="img-fluid mx-auto mb-3"
+                    className="img-fluid mx-auto mb-3 w-5"
                     src="/img/nghia.png"
                     alt=""
                   />
@@ -70,7 +70,7 @@ const Testimonial = () => {
                     rệt. Xin cảm ơn Sunroad đã đồng hành cùng gia đình mình!
                   </h4>
                   <img
-                    className="img-fluid mx-auto mb-3"
+                    className="img-fluid mx-auto mb-3 w-5"
                     src="/img/testimonial-3.jpg"
                     alt=""
                   />
