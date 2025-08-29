@@ -71,10 +71,10 @@ const Testimonial = () => {
                   </h4>
                   <img
                     className="img-fluid mx-auto mb-3 w-5"
-                    src="/img/testimonial-3.jpg"
+                    src="/img/nghia.png"
                     alt=""
                   />
-                  <h5 className="m-0">Chị Hiền</h5>
+                  <h5 className="m-0">Ông Quang</h5>
                   <span>Kế toán</span>
                 </div>
                 <a
